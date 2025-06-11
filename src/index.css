@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The * in CSS is the universal selector. It targets every element on the page.
+Set margin and padding to 0 for all elements (like <body>, <div>, <p>, etc.) — this removes default spacing browsers apply.
+Set box-sizing to border-box for all elements — this makes width and height calculations include padding and border, making layouts easier to manage. */
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    @apply min-h-screen font-sans bg-gray-100 flex antialiased;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  #root {
+    @apply flex flex-1 justify-center items-center;
+  }
+}
+
+@layer components {
+  .App {
+    @apply w-full max-w-[800px] h-screen flex flex-col items-center justify-start border border-gray-800 shadow-md;
+  }
+
+  .Header, .Footer {
+    @apply w-full bg-cyan-300 p-4 flex justify-between items-center;
+  }
+
+  .Header h1 {
+    @apply text-xl sm:text-2xl;
+  }
+
+  .Header svg {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  .Footer {
+    @apply p-3 grid place-content-center;
+  }
+
+  .Nav {
+    @apply w-full bg-gray-800 flex flex-col sm:flex-row sm:justify-between sm:items-center;
+  }
+
+  .searchForm {
+    @apply w-4/5 sm:w-1/2 py-4 sm:py-2 pl-3;
+  }
+
+  .searchForm input[type="text"] {
+    @apply w-full min-h-[48px] text-base p-1 rounded outline-none font-sans sm:ml-2;
+  }
+
+  .searchForm label {
+    @apply absolute -left-[99999px];
+  }
+
+  .Nav ul {
+    @apply text-white list-none flex flex-wrap items-center sm:text-right;
+  }
+
+  .Nav li {
+    @apply p-4 hover:bg-gray-200 hover:text-gray-900 cursor-pointer;
+  }
+
+  .Nav li a {
+    @apply text-white no-underline hover:text-gray-900;
+  }
+
+  .Home, .NewPost, .PostPage, .About, .Missing {
+    @apply w-full flex-1 p-4 overflow-y-auto bg-white;
+  }
+
+  .post {
+    @apply mt-4 pb-4 border-b border-gray-300 first:mt-0 last:border-b-0;
+  }
+
+  .Home .post a {
+    @apply no-underline text-black;
+  }
+
+  .postDate {
+    @apply text-xs mt-1;
+  }
+
+  .postBody {
+    @apply my-4;
+  }
+
+  .newPostForm {
+    @apply flex flex-col;
+  }
+
+  .newPostForm label {
+    @apply mt-4;
+  }
+
+  .newPostForm input[type='text'],
+  .newPostForm textarea {
+    @apply w-full min-h-[48px] text-base p-1 rounded outline-none font-sans mr-1;
+  }
+
+  .newPostForm textarea {
+    @apply h-[100px] sm:h-[300px];
+  }
+
+  .newPostForm button {
+    @apply mt-4 h-12 min-w-[48px] rounded-[10px] px-2 text-base cursor-pointer;
+  }
+
+  .Missing p, .PostPage p, .NewPost p {
+    @apply mt-4;
+  }
+
+  .PostPage button {
+    @apply h-12 min-w-[48px] rounded p-2 mr-2 text-base text-white cursor-pointer;
+  }
+
+  .deleteButton {
+    @apply bg-red-600;
+  }
+
+  .editButton {
+    @apply bg-gray-800;
+  }
+
+  .statusMsg {
+    @apply mt-8;
+  }
+}
